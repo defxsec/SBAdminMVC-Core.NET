@@ -50,7 +50,7 @@ namespace SBAdminMVC_Core.NET.Controllers
         {
             //return View(new Cliente());
             if(id == 0)
-                return View();
+                return View(new Cliente());
             else
                 return View(_context.Clientes.Find(id));
         }
