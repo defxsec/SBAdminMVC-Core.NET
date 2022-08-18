@@ -13,7 +13,7 @@
     
     <!-- Custom styles for this template-->
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
-     
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
     @*<link rel="stylesheet" href="~/SBAdminMVC_Core.NET.styles.css" asp-append-version="true" />*@
@@ -28,17 +28,16 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" asp-controller="Home" asp-action="Index">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                    
                     <i class="fa-solid fa-face-laugh-wink"></i>
 
-
                 </div>
                 <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
             </a>
-
+            
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -67,7 +66,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        @*<a class="collapse-item" href="buttons.html">CRUD Clientes</a>*@
+                        <a class="collapse-item" asp-area="" asp-controller="Clientes" asp-action="Index">CRUD CLientes</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
                     </div>
                 </div>
@@ -453,9 +453,18 @@
                         </div>
                     </div>
 
+                    <!-- Content Row RenderBody() -->
+                    @*<div class="row">*@
+                        @*<div class="container">*@
+                            <main role="main" class="pb-3">
+                                @RenderBody()
+                            </main>
+                        @*</div>*@
+                    @*</div>*@
+                    
                     <!-- Content Row -->
 
-                    <div class="row">
+                    @*<div class="row">
 
                         <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">
@@ -532,7 +541,7 @@
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
+                    @*<div class="row">
 
                         <!-- Content Column -->
                         <div class="col-lg-6 mb-4">
@@ -688,16 +697,19 @@
                 <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Main Content -->
+            <!-- End of Main Content -->*@
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        @*<span>Copyright &copy; Your Website 2021</span>*@
+                        <span>&copy; 2022 - SBAdminMVC_Core.NET - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></span>
                     </div>
                 </div>
             </footer>
+
+           
             <!-- End of Footer -->
 
         </div>
@@ -748,12 +760,12 @@
     <script src="~/js/SBAdmin/chart-area-demo.js"></script>
     <script src="~/js/SBAdmin/chart-pie-demo.js"></script>*@
 
-    <header>
+    @*<header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SBAdminMVC_Core.NET</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="false" aria-label="Togg`le navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
@@ -769,18 +781,18 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
+    </header>*@
+    @*<div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
-    </div>
+    </div>*@
 
-    <footer class="border-top footer text-muted">
+    @*<footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2022 - SBAdminMVC_Core.NET - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
 
     <!-- Bootstrap core JavaScript-->
     <script src="~/js/vendor/jquery/jquery.min.js"></script>

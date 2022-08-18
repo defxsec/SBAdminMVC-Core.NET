@@ -5,13 +5,22 @@ using SBAdminMVC_Core.NET.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+var connectionString = builder.Configuration.GetConnectionString("DevConnection");
+builder.Services.AddDbContext<SBAdminDBContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+//var connectionStringSBAdmin = builder.Configuration.GetConnectionString("DevConnection");
+//builder.Services.AddDbContext<SBAdminDBContext>(options =>
+//    options.UseSqlServer(connectionStringSBAdmin));
+//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+//Add DBContext
+//builder.Services.AddDbContext<SBAdminDBContext>(options =>
+//options.UseSqlServer(builder.Configuration.GetConnectionString("DevConnection")));
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<SBAdminDBContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

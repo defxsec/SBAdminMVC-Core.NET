@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SBAdminMVC_Core.NET.Models.Cliente>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<!-- Content Row -->
+
+<div class="row">
+
+	<!-- Area Chart -->
+	<div class="col-xl-12 col-lg-12">
+		<div class="card shadow mb-4">
+			<!-- Card Header - Dropdown -->
+			<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+				<h6 class="m-0 font-weight-bold text-primary">Lista de clientes</h6>
+				@*<div class="dropdown no-arrow">
+					<a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+					   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+						 aria-labelledby="dropdownMenuLink">
+						<div class="dropdown-header">Dropdown Header:</div>
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</div>*@
+			</div>
+			@*<!-- Card Body -->
+			<div class="card-body">
+				<div class="chart-area">
+					<canvas id="myAreaChart"></canvas>
+				</div>
+			</div>*@
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							@Html.DisplayNameFor(model => model.Nombres)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Apellidos)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Celular)
+						</th>
+						<th>
+							<a class="btn btn-success text-white" asp-action="AddOrEdit"><i class="fas fa-random"></i>Nuevo</a>							
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Nombres)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Apellidos)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Celular)
+							</td>
+							<td>
+								<a asp-action="AddOrEdit" asp-route-id="@item.ClienteId" class="btn btn-warning">
+									<i class="fa-solid fa-pen-to-square"></i>
+								</a>
+								<form asp-action="Delete" asp-route-id="@item.ClienteId" class="d-inline">
+									<button type="submit" class="btn btn-danger"  onclick="return confirm('Esta seguro de eliminar')">
+										<i class="fa-solid fa-trash-alt"></i>
+									</button>
+								</form>								
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>	
+</div>
